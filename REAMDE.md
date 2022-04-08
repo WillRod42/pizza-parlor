@@ -23,3 +23,28 @@ let order = new Order({"kind": "Normal", "amount": "normal"}, {"kind": "Normal",
 order.calcPrice();
 ```
 Expected-Output: 6
+
+
+
+Describe: calcPartPrice()
+
+Test: "If given 'none' as the part amount it should return 0"<br>
+Code:
+```
+calcPartPrice({kind: "Normal", amount: "none"}, "cheese");
+```
+Expected-Output: 0
+
+Test: "If given 'none' as the pizza part kind it should return 0"<br>
+Code:
+```
+calcPartPrice({kind: "None", amount: "none"}, "cheese");
+```
+Expected-Output: 0
+
+Test: "If not given 'normal' as amount it should return unmodified pizza part prize"<br>
+Code:
+```
+calcPartPrice({kind: "Normal", amount: "normal"}, "cheese");
+```
+Expected-Output: 1
