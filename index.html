@@ -16,37 +16,65 @@
         <div class="row">
           <div class="col-6">
             <label>Cheese:</label>
-            <select id="cheese" class="form-control"></select>
+            <select id="cheese" class="form-control" required></select>
           </div>
           <div class="col-3">
             <label>Amount:</label>
-            <select id="cheese-amount" class="form-control"></select>
+            <select id="cheese-amount" class="form-control" required></select>
           </div>
         </div>
         <div class="row">
           <div class="col-6">
             <label>Sauce:</label>
-            <select id="sauce" class="form-control"></select>
+            <select id="sauce" class="form-control" required></select>
           </div>
           <div class="col-3">
             <label>Amount:</label>
-            <select id="sauce-amount" class="form-control"></select>
+            <select id="sauce-amount" class="form-control" required></select>
           </div>
         </div>
         <div class="row">
           <div class="col-6">
             <label>Crust:</label>
-            <select id="crust" class="form-control"></select>
+            <select id="crust" class="form-control" required></select>
           </div>
         </div>
       </div>
       <div class="col-6">
         <h3>Pick Your Toppings!</h3>
-        <div id="toppings" class="border border-secondary">
-          <h1>TEST</h1>
+        <div class="row">
+          <div class="col-8">
+            <label>First Topping:</label>
+            <select id="topping-1" class="form-control" required></select>
+          </div>
+          <div class="col-3">
+            <label>Amount:</label>
+            <select id="topping-1-amount" class="form-control" required></select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <label>Second Topping:</label>
+            <select id="topping-2" class="form-control"></select>
+          </div>
+          <div class="col-3">
+            <label>Amount:</label>
+            <select id="topping-2-amount" class="form-control"></select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <label>Third Topping:</label>
+            <select id="topping-3" class="form-control"></select>
+          </div>
+          <div class="col-3">
+            <label>Amount:</label>
+            <select id="topping-3-amount" class="form-control"></select>
+          </div>
         </div>
       </div>
     </div>
+    <button type="submit" id="order" class="btn btn-primary">Order</button>
   </form>
 </body>
 </html>
