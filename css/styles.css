@@ -18,7 +18,8 @@ button {
   display: none;
 }
 
-#order-details {
+#order-details div {
   background-color: rgb(92, 143, 219);
   padding: 2em;
+  margin-top: 1em;
 }

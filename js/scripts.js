@@ -45,7 +45,7 @@ function calcPartPrice(part, partName) {
   switch (part.amount) {
     case ("light"): modifier = 0.5; break;
     case ("normal"): modifier = 1; break;
-    case ("extra"): modifier = 2; break;
+    case ("heavy"): modifier = 2; break;
     deafult: break;
   }
 
@@ -69,19 +69,19 @@ function populateDropdown(pizzaDataObject) {
 
 function createOrderHTML(order) {
   let orderHTML = "<div>";
-  orderHTML += "<p><b>Cheese</b>: " + order.cheese.kind + " amount: " + order.cheese.amount + "</p>";
-  orderHTML += "<p><b>Sauce</b>: " + order.sauce.kind + " amount: " + order.sauce.amount + "</p>";
+  orderHTML += "<p><b>Cheese</b>: " + order.cheese.kind + ", amount: " + order.cheese.amount + "</p>";
+  orderHTML += "<p><b>Sauce</b>: " + order.sauce.kind + ", amount: " + order.sauce.amount + "</p>";
   orderHTML += "<p><b>Crust</b>: " + order.crust + "</p>";
 
   let toppings = "<p><b>Toppings</b>: ";
   order.toppings.forEach(function(topping) {
-    toppings += topping.kind + " amount: " + topping.amount + " | ";
+    toppings += topping.kind + ", amount: " + topping.amount + " | ";
   });
   orderHTML += toppings.slice(0, toppings.length - 2) + "</p>";
 
   orderHTML += "<p><b>Size</b>: " + order.size + "</p>";
   orderHTML += "<p><b>Price</b>: $" + order.calcPrice().toFixed(2) + "</p>";
-  return orderHTML;
+  return orderHTML + "</div>";
 }
 
 $(document).ready(function() {
@@ -98,6 +98,6 @@ $(document).ready(function() {
     const crust = $("#crust").val();
     const size = $("#size").val();
 
-    $("#order-details").html(createOrderHTML(new Order(cheese, sauce, crust, [firstTopping, secondTopping, thirdTopping], size)));
+    $("#order-details").append(createOrderHTML(new Order(cheese, sauce, crust, [firstTopping, secondTopping, thirdTopping], size)));
   });
 });
