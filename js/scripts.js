@@ -1,4 +1,4 @@
-//Mock Database for pizza parts
+//Mock Database for pizza parts with prices
 const pizzaData = {
   "cheese": {"Normal": 1, "Diary-free": 1.5, "None": 0},
   "sauce": {"Normal": 1, "Marinara": 1, "BBQ": 1.5, "Alfredo": 1.5, "None": 0},
@@ -51,3 +51,21 @@ function calcPartPrice(part, partName) {
 
   return pizzaData[partName][part.kind] * modifier;
 }
+
+function populateDropdowns() {
+  $("#cheese").html(populateCheese);
+}
+
+function populateCheese() {
+  const cheese = pizzaData.cheese;
+  let cheeseHTML = "";
+  Object.keys(cheese).forEach(function(cheese) {
+    cheeseHTML +=  "<option>" + cheese + "</option>"
+  });
+
+  return cheeseHTML;
+}
+
+$(document).ready(function() {
+  populateDropdowns();
+});
