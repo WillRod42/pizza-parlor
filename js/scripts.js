@@ -69,19 +69,27 @@ function populateDropdown(pizzaDataObject) {
 
 function createOrderHTML(order) {
   let orderHTML = "<div>";
-  orderHTML += "<p><b>Cheese</b>: " + order.cheese.kind + ", amount: " + order.cheese.amount + "</p>";
-  orderHTML += "<p><b>Sauce</b>: " + order.sauce.kind + ", amount: " + order.sauce.amount + "</p>";
+  orderHTML += "<p><b>Cheese</b>: " + checkAmount(order.cheese) + "</p>";
+  orderHTML += "<p><b>Sauce</b>: " + checkAmount(order.sauce) + "</p>";
   orderHTML += "<p><b>Crust</b>: " + order.crust + "</p>";
 
   let toppings = "<p><b>Toppings</b>: ";
   order.toppings.forEach(function(topping) {
-    toppings += topping.kind + ", amount: " + topping.amount + " | ";
+    toppings += checkAmount(topping) +  " | ";
   });
   orderHTML += toppings.slice(0, toppings.length - 2) + "</p>";
 
   orderHTML += "<p><b>Size</b>: " + order.size + "</p>";
   orderHTML += "<p><b>Price</b>: $" + order.calcPrice().toFixed(2) + "</p>";
   return orderHTML + "</div>";
+}
+
+function checkAmount(pizzaPart) {
+  if (pizzaPart.amount === "none") {
+    return "---";
+  } else {
+    return pizzaPart.kind + ", amount: " + pizzaPart.amount;
+  }
 }
 
 $(document).ready(function() {
