@@ -52,14 +52,10 @@ function calcPartPrice(part, partName) {
   return pizzaData[partName][part.kind] * modifier;
 }
 
-function populateDropdowns() {
-  $("#cheese").html(populateDropdown(pizzaData.cheese));
-  $("#sauce").html(populateDropdown(pizzaData.sauce));
-  $("#crust").html(populateDropdown(pizzaData.crust));
-  $("#topping-1").html(populateDropdown(pizzaData.toppings));
-  $("#topping-2").html(populateDropdown(pizzaData.toppings));
-  $("#topping-3").html(populateDropdown(pizzaData.toppings));
-  $("#size").html(populateDropdown(pizzaData.size));
+function populateDropdowns(inputs, pizzaData) {
+  inputs.forEach(function(input, index) {
+    $("#" + input).html(populateDropdown(pizzaData[index]));
+  });
 }
 
 function populateDropdown(pizzaDataObject) {
@@ -89,7 +85,9 @@ function createOrderHTML(order) {
 }
 
 $(document).ready(function() {
-  populateDropdowns();
+  const inputs = ["cheese", "sauce", "crust", "topping-1", "topping-2", "topping-3", "size"];
+  const pizzaDataParts = [pizzaData.cheese, pizzaData.sauce, pizzaData.crust, pizzaData.toppings, pizzaData.toppings, pizzaData.toppings, pizzaData.size];
+  populateDropdowns(inputs, pizzaDataParts);
   $("form").submit(function(e) {
     e.preventDefault();
     const cheese = {"kind": $("#cheese").val(), "amount": $("#cheese-amount").val()};

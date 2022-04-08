@@ -2,8 +2,23 @@ body {
   width: 80%;
   margin: auto;
   max-width: 1000px;
+  background-color: rgb(228, 136, 32);
+}
+
+form {
+  border: 1px solid black;
+  padding: 1em;
+}
+
+button { 
+  margin-top: 1em;
 }
 
 .hidden {
   display: none;
+}
+
+#order-details {
+  background-color: rgb(92, 143, 219);
+  padding: 2em;
 }
