@@ -53,17 +53,22 @@ function calcPartPrice(part, partName) {
 }
 
 function populateDropdowns() {
-  $("#cheese").html(populateCheese);
+  $("#cheese").html(populateDropdown(pizzaData.cheese));
+  $("#sauce").html(populateDropdown(pizzaData.sauce));
+  $("#crust").html(populateDropdown(pizzaData.crust));
+  $("#topping-1").html(populateDropdown(pizzaData.toppings));
+  $("#topping-2").html(populateDropdown(pizzaData.toppings));
+  $("#topping-3").html(populateDropdown(pizzaData.toppings));
+  $("#size").html(populateDropdown(pizzaData.size));
 }
 
-function populateCheese() {
-  const cheese = pizzaData.cheese;
-  let cheeseHTML = "";
-  Object.keys(cheese).forEach(function(cheese) {
-    cheeseHTML +=  "<option>" + cheese + "</option>"
+function populateDropdown(pizzaDataObject) {
+  let html = "";
+  Object.keys(pizzaDataObject).forEach(function(key) {
+    html +=  "<option>" + key + "</option>"
   });
 
-  return cheeseHTML;
+  return html;
 }
 
 $(document).ready(function() {
