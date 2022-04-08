@@ -51,7 +51,3 @@ function calcPartPrice(part, partName) {
 
   return pizzaData[partName][part.kind] * modifier;
 }
-
-
-  let order = new Order({"kind": "None", "amount": "none"}, {"kind": "None", "amount": "none"}, "Thin", [{"kind": "None", "amount": "none"}], "Medium");
-  console.log(order.calcPrice());
