@@ -73,11 +73,18 @@ function populateDropdown(pizzaDataObject) {
 
 function createOrderHTML(order) {
   let orderHTML = "<div>";
-  orderHTML += "<p>Cheese: " + order.cheese.kind + "</p>";
-  orderHTML += "<p>Sauce: " + order.sauce.kind + "</p>";
-  orderHTML += "<p>Crust: " + order.crust + "</p>";
-  orderHTML += "<p>Toppings: " + order.toppings[0].kind + "</p>";
-  orderHTML += "<p>Size: " + order.size + "</p>";
+  orderHTML += "<p><b>Cheese</b>: " + order.cheese.kind + " amount: " + order.cheese.amount + "</p>";
+  orderHTML += "<p><b>Sauce</b>: " + order.sauce.kind + " amount: " + order.sauce.amount + "</p>";
+  orderHTML += "<p><b>Crust</b>: " + order.crust + "</p>";
+
+  let toppings = "<p><b>Toppings</b>: ";
+  order.toppings.forEach(function(topping) {
+    toppings += topping.kind + " amount: " + topping.amount + " | ";
+  });
+  orderHTML += toppings.slice(0, toppings.length - 2) + "</p>";
+
+  orderHTML += "<p><b>Size</b>: " + order.size + "</p>";
+  orderHTML += "<p><b>Price</b>: $" + order.calcPrice().toFixed(2) + "</p>";
   return orderHTML;
 }
 
@@ -86,11 +93,13 @@ $(document).ready(function() {
   $("form").submit(function(e) {
     e.preventDefault();
     const cheese = {"kind": $("#cheese").val(), "amount": $("#cheese-amount").val()};
-    const sauce = {"kind": $("#cheese").val(), "amount": $("#cheese-amount").val()};
-    const firstTopping = {"kind": $("#cheese").val(), "amount": $("#cheese-amount").val()};
+    const sauce = {"kind": $("#sauce").val(), "amount": $("#sauce-amount").val()};
+    const firstTopping = {"kind": $("#topping-1").val(), "amount": $("#topping-1-amount").val()};
+    const secondTopping = {"kind": $("#topping-2").val(), "amount": $("#topping-2-amount").val()};
+    const thirdTopping = {"kind": $("#topping-3").val(), "amount": $("#topping-3-amount").val()};
     const crust = $("#crust").val();
     const size = $("#size").val();
 
-    $("#order-details").html(createOrderHTML(new Order(cheese, sauce, crust, [firstTopping], size)));
-  })
+    $("#order-details").html(createOrderHTML(new Order(cheese, sauce, crust, [firstTopping, secondTopping, thirdTopping], size)));
+  });
 });
