@@ -85,7 +85,7 @@ function createOrderHTML(order) {
 }
 
 function checkAmount(pizzaPart) {
-  if (pizzaPart.amount === "none") {
+  if (pizzaPart.amount === "none" || pizzaPart.kind === "None") {
     return "---";
   } else {
     return pizzaPart.kind + ", amount: " + pizzaPart.amount;
