@@ -71,6 +71,26 @@ function populateDropdown(pizzaDataObject) {
   return html;
 }
 
+function createOrderHTML(order) {
+  let orderHTML = "<div>";
+  orderHTML += "<p>Cheese: " + order.cheese.kind + "</p>";
+  orderHTML += "<p>Sauce: " + order.sauce.kind + "</p>";
+  orderHTML += "<p>Crust: " + order.crust + "</p>";
+  orderHTML += "<p>Toppings: " + order.toppings[0].kind + "</p>";
+  orderHTML += "<p>Size: " + order.size + "</p>";
+  return orderHTML;
+}
+
 $(document).ready(function() {
   populateDropdowns();
+  $("form").submit(function(e) {
+    e.preventDefault();
+    const cheese = {"kind": $("#cheese").val(), "amount": $("#cheese-amount").val()};
+    const sauce = {"kind": $("#cheese").val(), "amount": $("#cheese-amount").val()};
+    const firstTopping = {"kind": $("#cheese").val(), "amount": $("#cheese-amount").val()};
+    const crust = $("#crust").val();
+    const size = $("#size").val();
+
+    $("#order-details").html(createOrderHTML(new Order(cheese, sauce, crust, [firstTopping], size)));
+  })
 });

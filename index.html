@@ -16,11 +16,11 @@
         <div class="row">
           <div class="col-6">
             <label>Cheese:</label>
-            <select id="cheese" class="form-control" required></select>
+            <select id="cheese" class="form-control"></select>
           </div>
           <div class="col-3">
             <label>Amount:</label>
-            <select id="cheese-amount" class="form-control" required>
+            <select id="cheese-amount" class="form-control">
               <option>light</option>
               <option>normal</option>
               <option>heavy</option>
@@ -31,11 +31,11 @@
         <div class="row">
           <div class="col-6">
             <label>Sauce:</label>
-            <select id="sauce" class="form-control" required></select>
+            <select id="sauce" class="form-control"></select>
           </div>
           <div class="col-3">
             <label>Amount:</label>
-            <select id="sauce-amount" class="form-control" required>
+            <select id="sauce-amount" class="form-control">
               <option>light</option>
               <option>normal</option>
               <option>heavy</option>
@@ -46,11 +46,11 @@
         <div class="row">
           <div class="col-6">
             <label>Crust:</label>
-            <select id="crust" class="form-control" required></select>
+            <select id="crust" class="form-control"></select>
           </div>
           <div class="col-3">
             <label>Size:</label>
-            <select id="size" class="form-control" required></select>
+            <select id="size" class="form-control"></select>
           </div>
         </div>
       </div>
@@ -59,11 +59,11 @@
         <div class="row">
           <div class="col-8">
             <label>First Topping:</label>
-            <select id="topping-1" class="form-control" required></select>
+            <select id="topping-1" class="form-control"></select>
           </div>
           <div class="col-3">
             <label>Amount:</label>
-            <select id="topping-1-amount" class="form-control" required>
+            <select id="topping-1-amount" class="form-control">
               <option>light</option>
               <option>normal</option>
               <option>heavy</option>
@@ -71,7 +71,7 @@
             </select>
           </div>
         </div>
-        <div class="row">
+        <div id="topping-2-div" class="row hidden">
           <div class="col-8">
             <label>Second Topping:</label>
             <select id="topping-2" class="form-control"></select>
@@ -86,7 +86,7 @@
             </select>
           </div>
         </div>
-        <div class="row">
+        <div id="topping-3-div" class="row hidden">
           <div class="col-8">
             <label>Third Topping:</label>
             <select id="topping-3" class="form-control"></select>
@@ -105,9 +105,7 @@
     </div>
     <button type="submit" id="order" class="btn btn-primary">Order</button>
   </form>
-  <div id="order-details">
-    <h2>Order Details:</h2>
-
-  </div>
+  <h2>Order Details:</h2>
+  <div id="order-details"></div>
 </body>
 </html>
